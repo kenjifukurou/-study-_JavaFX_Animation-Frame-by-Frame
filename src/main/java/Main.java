@@ -246,6 +246,7 @@ public class Main extends Application {
         timelineTitan.play();
         timelineHitFX.play();
 
+
         // ---------------------------------------------------------------
 
 //        Pane root = new Pane();

@@ -1,20 +1,29 @@
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
+import javafx.beans.property.DoubleProperty;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.util.Duration;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-public class Controller implements Initializable {
+public class Controller {
 
     @FXML
-    private Label label;
+    private ImageView skyBackground;
+
+    Timeline tlRotate = new Timeline();
+
     @FXML
-    private Button button;
+    public void handleRotateImage(MouseEvent event) {
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+        DoubleProperty r = skyBackground.rotateProperty();
 
+        tlRotate.getKeyFrames().addAll(
+                new KeyFrame(new Duration(0), new KeyValue(r, 0)),
+                new KeyFrame(new Duration(23000), new KeyValue(r, 360))
+                );
+
+        tlRotate.play();
     }
 }
